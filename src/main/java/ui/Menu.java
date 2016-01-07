@@ -15,6 +15,14 @@ public class Menu extends JMenu {
     private void initComponents() {
         this.setText("Меню");
         addPayment = new JMenuItem("Добавить платеж");
-
+        bind();
+    }
+    private void bind(){
+        addPayment.addActionListener(e -> {
+            CreatePaymentController window = new CreatePaymentController();
+            //window.setTrainListModel(trainsListModel);
+            window.pack();
+            window.setVisible(true);
+        });
     }
 }

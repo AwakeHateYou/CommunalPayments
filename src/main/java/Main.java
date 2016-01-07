@@ -20,10 +20,10 @@ public class Main {
         JFrame mainFrame = new JFrame("Payments");
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(new Menu());
+        //mainFrame.setLayout(new BorderLayout());
         mainFrame.setJMenuBar(menuBar);
-        mainFrame.setContentPane(new PaymentsController().getPanel());
+        mainFrame.setContentPane(new PaymentsController());
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        mainFrame.setSize(300, 300);
         mainFrame.pack();
         mainFrame.setLocationRelativeTo(null);
         mainFrame.setVisible(true);
