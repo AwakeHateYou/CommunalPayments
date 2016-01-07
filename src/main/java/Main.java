@@ -8,6 +8,8 @@ Main:
 Терентьев Евгений, ИВТ-42БО
  */
 
+import util.PaymentsController;
+
 import javax.swing.*;
 
 public class Main {
@@ -17,7 +19,7 @@ public class Main {
      */
     public static void main(final String[] args) {
         JFrame mainFrame = new JFrame("Payments");
-       // mainFrame.setContentPane(new TrainsController().getPanel());
+        mainFrame.setContentPane(new PaymentsController().getPanel());
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         mainFrame.pack();
