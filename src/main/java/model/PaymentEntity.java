@@ -60,23 +60,39 @@ public class PaymentEntity {
         return price;
     }
 
+    /**
+     * Сеттер суммы платежа.
+     * @param price
+     */
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    /**
+     * Геттер внесенной суммы
+     * @return внесенная сумма
+     */
+    @Basic
+    @Column(name = "price_done")
     public double getPriceDone() {
         return priceDone;
     }
 
+    /**
+     *
+     * @param priceDone
+     */
+    public void setPriceDone(double priceDone) {
+        this.priceDone = priceDone;
+    }
     public String getPayType() {
         return payType;
     }
 
 
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
-    public void setPriceDone(double priceDone) {
-        this.priceDone = priceDone;
-    }
+
+
 
     public void setPayType(String payType) {
         this.payType = payType;
