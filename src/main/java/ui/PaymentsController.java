@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by etere on 07.01.2016.
+ * Окно, отображающее все счета.
  */
 public class PaymentsController extends JPanel {
     private JScrollPane scrollPayments;

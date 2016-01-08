@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 /**
- * Created by etere on 07.01.2016.
+ * Окно, удаляющее счета.
  */
 public class DeletePaymentController extends JFrame {
     private JComboBox listPayment;

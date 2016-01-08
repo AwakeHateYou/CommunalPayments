@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by etere on 07.01.2016.
+ * Окно создания счета.
  */
 public class CreatePaymentController extends JFrame{
     private JTextField fio, price, priceDone;
