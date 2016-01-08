@@ -78,22 +78,27 @@ public class PaymentEntity {
     }
 
     /**
-     *
-     * @param priceDone
+     * Сеттер внесенной суммы
+     * @param priceDone внесенная сумма
      */
     public void setPriceDone(double priceDone) {
         this.priceDone = priceDone;
     }
+
+    /**
+     * Геттер вида платежа
+     * @return вид платежа
+     */
+    @Basic
+    @Column(name = "default_pay_type")
     public String getPayType() {
         return payType;
     }
 
-
-
-
-
-
-
+    /**
+     * Сеттер вида платежа
+     * @param payType вид платежа
+     */
     public void setPayType(String payType) {
         this.payType = payType;
     }
