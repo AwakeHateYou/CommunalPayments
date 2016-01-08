@@ -1,4 +1,5 @@
-package model;
+package terentev.evgenyi.model;
+
 import javax.persistence.*;
 
 /**

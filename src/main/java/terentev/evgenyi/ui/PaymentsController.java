@@ -1,5 +1,6 @@
-package ui;
-import model.PaymentEntity;
+package terentev.evgenyi.ui;
+
+import terentev.evgenyi.model.PaymentEntity;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,14 +11,14 @@ import java.awt.*;
 public class PaymentsController extends JFrame {
     private JScrollPane scrollPayments;
     private JList<PaymentEntity> listPayments;
+
     private DefaultListModel<PaymentEntity> paymentsListModel;
 
     public PaymentsController() {
         initComponents();
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
         setPreferredSize(new Dimension(300,300));
 //        updateListWithItems(listPayments, StorePayments.allObjectWithClass(PaymentEntity.class));
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
@@ -33,7 +34,9 @@ public class PaymentsController extends JFrame {
 
     private void setMenuBar() {
         JMenuBar menuBar = new JMenuBar();
-        menuBar.add(new Menu());
+        Menu menu = new Menu();
+        menu.setPaymentsListModel(paymentsListModel);
+        menuBar.add(menu);
         setJMenuBar(menuBar);
     }
 

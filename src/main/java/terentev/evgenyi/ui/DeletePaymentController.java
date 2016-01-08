@@ -1,4 +1,5 @@
-package ui;
+package terentev.evgenyi.ui;
+
 import javax.swing.*;
 
 /**

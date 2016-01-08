@@ -1,4 +1,7 @@
-package ui;
+package terentev.evgenyi.ui;
+
+import terentev.evgenyi.model.PaymentEntity;
+
 import javax.swing.*;
 
 /**
@@ -6,6 +9,9 @@ import javax.swing.*;
  */
 public class Menu extends JMenu {
     JMenuItem addPayment, sumPaymentByFIO, listDebtors, listDebtorsInRange, payThePrice;
+
+    private DefaultListModel<PaymentEntity> paymentsListModel;
+
     public Menu() {
         initComponents();
         add(addPayment);
@@ -14,7 +20,6 @@ public class Menu extends JMenu {
         add(listDebtorsInRange);
         add(payThePrice);
         setVisible(true);
-
     }
 
     private void initComponents() {
@@ -26,12 +31,17 @@ public class Menu extends JMenu {
         payThePrice = new JMenuItem("Оплатить по счету");
         bind();
     }
-    private void bind(){
+
+    private void bind() {
         addPayment.addActionListener(e -> {
             CreatePaymentController window = new CreatePaymentController();
-            //window.setTrainListModel(trainsListModel);
+            window.setPaymentEntityDefaultListModel(paymentsListModel);
             window.pack();
             window.setVisible(true);
         });
+    }
+
+    public void setPaymentsListModel(DefaultListModel<PaymentEntity> paymentsListModel) {
+        this.paymentsListModel = paymentsListModel;
     }
 }

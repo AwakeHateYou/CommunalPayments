@@ -1,6 +1,7 @@
-package ui;
-import model.PaymentEntity;
-import store.StorePayments;
+package terentev.evgenyi.ui;
+
+import terentev.evgenyi.model.PaymentEntity;
+import terentev.evgenyi.store.StorePayments;
 
 import javax.swing.*;
 import java.awt.*;
