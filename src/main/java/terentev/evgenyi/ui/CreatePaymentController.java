@@ -93,9 +93,7 @@ public class CreatePaymentController extends JFrame{
         paymentEntity.setPrice(Double.parseDouble(price));
         paymentEntity.setPriceDone(Double.parseDouble(priceDefault));
         paymentEntity.setPayType(defaultTypes[typeListComboBox.getSelectedIndex()]);
-
         StorePayments.save(paymentEntity);
-
         paymentEntityDefaultListModel.addElement(paymentEntity);
         dispose();
     }

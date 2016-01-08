@@ -104,5 +104,13 @@ public class PaymentEntity {
     public void setPayType(String payType) {
         this.payType = payType;
     }
+    /**
+     * Строковой вид объекта
+     * @return строковой вид объекта
+     */
+    @Override
+    public String toString() {
+        return "ФИО:'" + fio + " Тип: " + payType;
+    }
 
 }

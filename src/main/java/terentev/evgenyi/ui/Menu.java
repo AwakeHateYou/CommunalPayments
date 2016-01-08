@@ -3,18 +3,22 @@ package terentev.evgenyi.ui;
 import terentev.evgenyi.model.PaymentEntity;
 
 import javax.swing.*;
+import terentev.evgenyi.store.StorePayments;
 
 /**
  * Меню с действиями.
  */
 public class Menu extends JMenu {
-    JMenuItem addPayment, sumPaymentByFIO, listDebtors, listDebtorsInRange, payThePrice;
-
+    JMenuItem addPayment, deletePayment, sumPaymentByFIO, listDebtors, listDebtorsInRange, payThePrice;
+    JFrame mainWindow;
+    JList<PaymentEntity> listPayments;
     private DefaultListModel<PaymentEntity> paymentsListModel;
 
-    public Menu() {
+    public Menu(JList<PaymentEntity> listPayments) {
+        this.listPayments = listPayments;
         initComponents();
         add(addPayment);
+        add(deletePayment);
         add(sumPaymentByFIO);
         add(listDebtors);
         add(listDebtorsInRange);
@@ -25,6 +29,7 @@ public class Menu extends JMenu {
     private void initComponents() {
         this.setText("Меню");
         addPayment = new JMenuItem("Добавить платеж");
+        deletePayment = new JMenuItem("Удалить выбраный платеж");
         sumPaymentByFIO = new JMenuItem("Вывести счета по ФИО");
         listDebtors = new JMenuItem("Вывести список должников");
         listDebtorsInRange = new JMenuItem("Вывести список должников в диапазоне");
@@ -39,9 +44,44 @@ public class Menu extends JMenu {
             window.pack();
             window.setVisible(true);
         });
+        deletePayment.addActionListener(e -> {
+            try {
+                boolean removed = removeSelectedFromList();
+                if (!removed) {
+                    showMessage("Выберете счет.");
+                }
+            } catch (Exception ex) {
+                showMessage(ex.getLocalizedMessage());
+                }
+        });
+    }
+
+    /**
+     * Удаляет выбранный в списке объект
+     * @return успешность удаления
+     */
+    private boolean removeSelectedFromList() {
+        Object selected = listPayments.getSelectedValue();
+
+        if (selected == null) {
+            return false;
+        }
+
+        StorePayments.deleteObject(selected);
+        paymentsListModel.remove(listPayments.getSelectedIndex());
+
+        return true;
     }
 
     public void setPaymentsListModel(DefaultListModel<PaymentEntity> paymentsListModel) {
         this.paymentsListModel = paymentsListModel;
+    }
+    /**
+     * Показывает сообщение с информацией
+     * @param message сообщение
+     */
+    private void showMessage(String message) {
+        JPanel panel = new JPanel();
+        JOptionPane.showMessageDialog(panel, message, "info", JOptionPane.INFORMATION_MESSAGE);
     }
 }
