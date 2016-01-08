@@ -1,5 +1,3 @@
-/**
- * Created by etere on 07.01.2016.
- */
+package ui;
 public class CreateDebtorsListController {
 }
