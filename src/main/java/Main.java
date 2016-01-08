@@ -8,13 +8,10 @@ Main:
 Терентьев Евгений, ИВТ-42БО
  */
 
-import javax.swing.*;
-
 import ui.Menu;
 import ui.PaymentsController;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Main {
     /**
