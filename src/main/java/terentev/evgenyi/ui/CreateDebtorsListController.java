@@ -2,23 +2,29 @@ package terentev.evgenyi.ui;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import terentev.evgenyi.model.PaymentEntity;
 import terentev.evgenyi.store.StorePayments;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class CreateDebtorsListController extends JFrame{
-    JList<String> listDebtors;
-    private JList<Object> resultList;
-    DefaultListModel<String> modelForListDebtors;
+    private JList<Object> listDebtors;
+    private JSpinner from, to;
+    private JButton accept;
     public CreateDebtorsListController(){
         initialize();
     }
     private void initialize(){
-        resultList = new JList<>();
-        //modelForListDebtors = new DefaultListModel<>();
+        setLayout(new FlowLayout());
+        listDebtors = new JList<>();
+        from = new JSpinner();
+        to = new JSpinner();
+        accept = new JButton("Приянть");
         findDebtors();
-        getContentPane().add(resultList);
+        getContentPane().add(from);
+        getContentPane().add(to);
+        getContentPane().add(accept);
+        getContentPane().add(listDebtors);
     }
     /**
      * Поиск всех долждников
@@ -36,7 +42,7 @@ public class CreateDebtorsListController extends JFrame{
 //        }
 
         Query query = session.createQuery(queryString);
-        resultList.setListData(query.list().toArray());
+        listDebtors.setListData(query.list().toArray());
 
         session.close();
     }
