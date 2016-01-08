@@ -9,6 +9,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -28,7 +29,7 @@ public class StorePayments {
     static {
         try {
             Configuration configuration = new Configuration();
-            configuration.configure();
+            configuration.configure(new File("src/main/java/hibernate.cfg.xml"));
             ServiceRegistry serviceRegistry =
                     new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
             ourSessionFactory = configuration.buildSessionFactory(serviceRegistry);
