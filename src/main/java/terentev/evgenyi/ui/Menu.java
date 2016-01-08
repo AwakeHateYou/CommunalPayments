@@ -54,6 +54,11 @@ public class Menu extends JMenu {
                 showMessage(ex.getLocalizedMessage());
                 }
         });
+        listDebtors.addActionListener(e -> {
+            CreateDebtorsListController window = new CreateDebtorsListController();
+            window.pack();
+            window.setVisible(true);
+        });
     }
 
     /**
