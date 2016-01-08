@@ -6,6 +6,8 @@ import java.awt.*;
  * Окно создания счета.
  */
 public class CreatePaymentController extends JFrame{
+    JButton accept;
+    JButton cancel;
 
     public CreatePaymentController() {
         getContentPane().setLayout(new GridLayout(5, 1));
@@ -62,11 +64,19 @@ public class CreatePaymentController extends JFrame{
 
     private void setButtonLayout() {
         JPanel buttonPanel = new JPanel();
-        JButton accept = new JButton("Принять");
-        JButton cancel = new JButton("Отменить");
+        accept = new JButton("Принять");
+        cancel = new JButton("Отменить");
+        accept.addActionListener(e -> acceptListener());
+        cancel.addActionListener(e -> {
+            CreatePaymentController.this.setVisible(false);
+            CreatePaymentController.this.dispose();
+        });
         buttonPanel.add(accept);
         buttonPanel.add(cancel);
         getContentPane().add(buttonPanel);
     }
 
+    private void acceptListener() {
+
+    }
 }
