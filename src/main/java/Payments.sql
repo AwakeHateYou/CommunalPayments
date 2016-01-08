@@ -23,7 +23,7 @@ CREATE TABLE `Payment` (
   `default_pay_type` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
-
+Payment
 
 
 
