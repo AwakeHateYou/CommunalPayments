@@ -1,5 +1,7 @@
 package terentev.evgenyi.ui;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import terentev.evgenyi.model.PaymentEntity;
 import terentev.evgenyi.store.StorePayments;
 
@@ -65,6 +67,16 @@ public class PaymentsController extends JFrame {
             tableData.add(oneRow);
         }
         tablePayments.setModel(new DefaultTableModel(tableData, tableHeaders));
+    }
+    private void findDebtors() {
+        Session session = StorePayments.getSession();
+
+        String queryString = "select fio from PaymentEntity payment where payment.price > payment.priceDone order by payment.fio";
+
+        Query query = session.createQuery(queryString);
+       // listDebtors.setListData(query.list().toArray());
+
+        session.close();
     }
 
     public static void main(String[] args) {

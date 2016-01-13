@@ -16,22 +16,16 @@ public class Menu extends JMenu {
         this.mainWindow = mainWindow;
         initComponents();
         add(addPayment);
-        add(deletePayment);
         add(sumPaymentByFIO);
         add(listDebtors);
-        add(listDebtorsInRange);
-        add(payThePrice);
         setVisible(true);
     }
 
     private void initComponents() {
         this.setText("Меню");
         addPayment = new JMenuItem("Добавить платеж");
-        deletePayment = new JMenuItem("Удалить выбраный платеж");
         sumPaymentByFIO = new JMenuItem("Вывести счета по ФИО");
         listDebtors = new JMenuItem("Вывести список должников");
-        listDebtorsInRange = new JMenuItem("Вывести список должников в диапазоне");
-        payThePrice = new JMenuItem("Оплатить по счету");
         bind();
     }
 

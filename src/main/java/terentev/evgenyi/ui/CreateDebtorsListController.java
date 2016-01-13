@@ -11,25 +11,25 @@ public class CreateDebtorsListController extends JFrame{
     private JList<Object> listDebtors;
     private JSpinner from, to;
     private JButton accept;
+    private JScrollPane scrollPane;
     public CreateDebtorsListController(){
         initialize();
     }
     private void initialize(){
         setLayout(new FlowLayout());
         listDebtors = new JList<>();
+        scrollPane = new JScrollPane(listDebtors);
         from = new JSpinner();
         to = new JSpinner();
         accept = new JButton("Приянть");
         findDebtors();
+        getContentPane().add(scrollPane);
         getContentPane().add(from);
         getContentPane().add(to);
         getContentPane().add(accept);
-        getContentPane().add(listDebtors);
     }
     /**
      * Поиск всех долждников
-     * @param departure место отправления
-     * @param varParameter второй параметр
      */
     private void findDebtors() {
         Session session = StorePayments.getSession();
