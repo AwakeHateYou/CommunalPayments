@@ -6,7 +6,10 @@ import terentev.evgenyi.model.PaymentEntity;
 import terentev.evgenyi.store.StorePayments;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.util.Vector;
 
@@ -37,6 +40,7 @@ public class PaymentsController extends JFrame {
         displayResult(StorePayments.allObjectWithClass(PaymentEntity.class));
         scrollPane = new JScrollPane(tablePayments);
         getContentPane().add(scrollPane);
+        bind();
     }
 
     private void setMenuBar() {
@@ -47,12 +51,17 @@ public class PaymentsController extends JFrame {
         menuBar.add(delete);
         setJMenuBar(menuBar);
     }
+    private void bind(){
+        delete.addActionListener(e -> deletePayment());
+
+    }
     public void updateTable(java.util.List<PaymentEntity> items){
         displayResult(items);
     }
     private void displayResult(java.util.List<PaymentEntity> items) {
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
+        tableHeaders.add("");
         tableHeaders.add("ФИО");
         tableHeaders.add("Сумма платежа");
         tableHeaders.add("Оплачено");
@@ -60,23 +69,31 @@ public class PaymentsController extends JFrame {
 
         for(PaymentEntity payment : items) {
             Vector<Object> oneRow = new Vector<>();
+            oneRow.add(payment.getId());
             oneRow.add(payment.getFio());
             oneRow.add(payment.getPrice());
             oneRow.add(payment.getPriceDone());
             oneRow.add(payment.getPayType());
             tableData.add(oneRow);
         }
+
         tablePayments.setModel(new DefaultTableModel(tableData, tableHeaders));
+        blockIdColumn();
     }
-    private void findDebtors() {
+    private void deletePayment() {
         Session session = StorePayments.getSession();
-
-        String queryString = "select fio from PaymentEntity payment where payment.price > payment.priceDone order by payment.fio";
-
+        String queryString = "delete PaymentEntity where id = :hey";
         Query query = session.createQuery(queryString);
-       // listDebtors.setListData(query.list().toArray());
-
+        query.setParameter("hey", tablePayments.getValueAt(tablePayments.getSelectedRow(), 0));
+        query.executeUpdate();
         session.close();
+        updateTable(StorePayments.allObjectWithClass(PaymentEntity.class));
+    }
+    private void blockIdColumn(){
+        TableColumnModel cm = tablePayments.getColumnModel();
+        cm.getColumn(0).setMaxWidth(0);
+        //cm.getColumn(0).setPreferredWidth(0);
+        cm.getColumn(0).setResizable(false);
     }
 
     public static void main(String[] args) {

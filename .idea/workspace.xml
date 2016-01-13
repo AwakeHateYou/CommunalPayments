@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e366a267-f926-43de-94ee-ec82ad0c8434" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreateDebtorsListController.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreateDebtorsListController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreatePaymentController.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreatePaymentController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/Menu.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/Menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/PaymentsController.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/PaymentsController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreateDebtorsListController.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreateDebtorsListController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/Menu.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/Menu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java" />
     </list>
     <ignored path="CommunalPayments.iws" />
@@ -42,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreateDebtorsListController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+              <caret line="40" column="65" selection-start-line="40" selection-start-column="65" selection-end-line="40" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -72,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+              <caret line="68" column="2" selection-start-line="68" selection-start-column="2" selection-end-line="68" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -81,13 +83,13 @@
       <file leaf-file-name="PaymentsController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.82974136">
-              <caret line="76" column="9" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.70689654">
+              <caret line="93" column="24" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1436#1437#0" expanded="true" />
-                <element signature="e#1472#1473#0" expanded="true" />
-                <element signature="e#1592#1600#0" expanded="true" />
+                <element signature="e#1671#1672#0" expanded="true" />
+                <element signature="e#1707#1708#0" expanded="true" />
+                <element signature="e#1827#1835#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -136,8 +138,8 @@
         <option value="$PROJECT_DIR$/src/main/java/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreatePaymentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/Menu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreateDebtorsListController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java" />
       </list>
     </option>
   </component>
@@ -760,7 +762,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452698799476</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="new ui and update now work">
+      <created>1452699496047</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1452699496047</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -872,9 +880,9 @@
           <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-            <element signature="e#1472#1473#0" expanded="true" />
-            <element signature="e#1592#1600#0" expanded="true" />
+            <element signature="e#1671#1672#0" expanded="true" />
+            <element signature="e#1707#1708#0" expanded="true" />
+            <element signature="e#1827#1835#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -944,9 +952,9 @@
           <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-            <element signature="e#1472#1473#0" expanded="true" />
-            <element signature="e#1592#1600#0" expanded="true" />
+            <element signature="e#1671#1672#0" expanded="true" />
+            <element signature="e#1707#1708#0" expanded="true" />
+            <element signature="e#1827#1835#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1016,9 +1024,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-            <element signature="e#1472#1473#0" expanded="true" />
-            <element signature="e#1592#1600#0" expanded="true" />
+            <element signature="e#1671#1672#0" expanded="true" />
+            <element signature="e#1707#1708#0" expanded="true" />
+            <element signature="e#1827#1835#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1088,9 +1096,9 @@
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-            <element signature="e#1472#1473#0" expanded="true" />
-            <element signature="e#1592#1600#0" expanded="true" />
+            <element signature="e#1671#1672#0" expanded="true" />
+            <element signature="e#1707#1708#0" expanded="true" />
+            <element signature="e#1827#1835#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1160,9 +1168,9 @@
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-            <element signature="e#1472#1473#0" expanded="true" />
-            <element signature="e#1592#1600#0" expanded="true" />
+            <element signature="e#1671#1672#0" expanded="true" />
+            <element signature="e#1707#1708#0" expanded="true" />
+            <element signature="e#1827#1835#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1223,14 +1231,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/store/StorePayments.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1255,10 +1255,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreateDebtorsListController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+          <caret line="68" column="2" selection-start-line="68" selection-start-column="2" selection-end-line="68" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -1274,15 +1274,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreateDebtorsListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="65" selection-start-line="40" selection-start-column="65" selection-end-line="40" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82974136">
-          <caret line="76" column="9" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.70689654">
+          <caret line="93" column="24" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-            <element signature="e#1472#1473#0" expanded="true" />
-            <element signature="e#1592#1600#0" expanded="true" />
+            <element signature="e#1671#1672#0" expanded="true" />
+            <element signature="e#1707#1708#0" expanded="true" />
+            <element signature="e#1827#1835#0" expanded="true" />
           </folding>
         </state>
       </provider>
