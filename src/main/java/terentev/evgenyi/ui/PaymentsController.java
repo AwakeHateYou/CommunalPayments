@@ -4,31 +4,20 @@ import terentev.evgenyi.model.PaymentEntity;
 import terentev.evgenyi.store.StorePayments;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.Vector;
 
 /**
  * Окно, отображающее все счета.
  */
 public class PaymentsController extends JFrame {
-    public JList<PaymentEntity> getListPayments() {
-        return listPayments;
-    }
 
-    //private JScrollPane scrollPayments;
-    private JList<PaymentEntity> listPayments;
-
-    public void setPaymentsListModel(DefaultListModel<PaymentEntity> paymentsListModel) {
-        this.paymentsListModel = paymentsListModel;
-    }
-
-
-
-    private DefaultListModel<PaymentEntity> paymentsListModel;
+    private JTable tablePayments;
 
     public PaymentsController() {
         initComponents();
         setPreferredSize(new Dimension(300,300));
-        updateListWithItems(listPayments, StorePayments.allObjectWithClass(PaymentEntity.class));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
@@ -37,33 +26,35 @@ public class PaymentsController extends JFrame {
     private void initComponents() {
         setTitle("Payments");
         setMenuBar();
-
-        //scrollPayments = new JScrollPane();
-        //scrollPayments.add(listPayments);
-
-        getContentPane().add(listPayments);
+        tablePayments = new JTable();
+        displayResult(StorePayments.allObjectWithClass(PaymentEntity.class));
+        getContentPane().add(tablePayments);
     }
 
     private void setMenuBar() {
-        listPayments = new JList<>();
         JMenuBar menuBar = new JMenuBar();
-        Menu menu = new Menu(listPayments);
-        menu.setPaymentsListModel(paymentsListModel);
+        Menu menu = new Menu();
         menuBar.add(menu);
         setJMenuBar(menuBar);
     }
 
-    /**
-     * Добавляет объекты в список
-     * @param listItems список
-     * @param items объекты
-     */
-    private void updateListWithItems(JList<PaymentEntity> listItems, java.util.List<PaymentEntity> items) {
-        DefaultListModel<PaymentEntity> model = new DefaultListModel<>();
-        items.forEach(model::addElement);
+    private void displayResult(java.util.List<PaymentEntity> items) {
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("ФИО");
+        tableHeaders.add("Суммаплатежа");
+        tableHeaders.add("Оплачено");
+        tableHeaders.add("Видплатежа");
 
-        paymentsListModel = model;
-        listItems.setModel(model);
+        for(PaymentEntity payment : items) {
+            Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(payment.getFio());
+            oneRow.add(payment.getPrice());
+            oneRow.add(payment.getPriceDone());
+            oneRow.add(payment.getPayType());
+            tableData.add(oneRow);
+        }
+        tablePayments.setModel(new DefaultTableModel(tableData, tableHeaders));
     }
 
     public static void main(String[] args) {

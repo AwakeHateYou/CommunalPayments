@@ -14,8 +14,7 @@ public class Menu extends JMenu {
     JList<PaymentEntity> listPayments;
     private DefaultListModel<PaymentEntity> paymentsListModel;
 
-    public Menu(JList<PaymentEntity> listPayments) {
-        this.listPayments = listPayments;
+    public Menu() {
         initComponents();
         add(addPayment);
         add(deletePayment);
