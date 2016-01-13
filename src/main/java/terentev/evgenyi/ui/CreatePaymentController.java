@@ -14,11 +14,11 @@ public class CreatePaymentController extends JFrame{
     private JTextField priceTextField;
     private JTextField priceDefaultTextField;
     private JComboBox<String> typeListComboBox;
+    private PaymentsController mainWindow;
     private String[] defaultTypes = {"Квартплата", "Плата за электроэнергию", "Плата за телефон"};
 
-    private DefaultListModel<PaymentEntity> paymentEntityDefaultListModel;
-
-    public CreatePaymentController() {
+    public CreatePaymentController(PaymentsController mainWindow) {
+        this.mainWindow = mainWindow;
         getContentPane().setLayout(new GridLayout(5, 1));
         initComponents();
         setPreferredSize(new Dimension(350, 280));
@@ -94,11 +94,8 @@ public class CreatePaymentController extends JFrame{
         paymentEntity.setPriceDone(Double.parseDouble(priceDefault));
         paymentEntity.setPayType(defaultTypes[typeListComboBox.getSelectedIndex()]);
         StorePayments.save(paymentEntity);
-        paymentEntityDefaultListModel.addElement(paymentEntity);
+        mainWindow.updateTable(StorePayments.allObjectWithClass(PaymentEntity.class));
         dispose();
     }
 
-    public void setPaymentEntityDefaultListModel(DefaultListModel<PaymentEntity> paymentEntityDefaultListModel) {
-        this.paymentEntityDefaultListModel = paymentEntityDefaultListModel;
-    }
 }
