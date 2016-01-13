@@ -81,13 +81,15 @@ public class PaymentsController extends JFrame {
         blockIdColumn();
     }
     private void deletePayment() {
-        Session session = StorePayments.getSession();
-        String queryString = "delete PaymentEntity where id = :hey";
-        Query query = session.createQuery(queryString);
-        query.setParameter("hey", tablePayments.getValueAt(tablePayments.getSelectedRow(), 0));
-        query.executeUpdate();
-        session.close();
-        updateTable(StorePayments.allObjectWithClass(PaymentEntity.class));
+        if(tablePayments.getSelectedRow() >= 0) {
+            Session session = StorePayments.getSession();
+            String queryString = "delete PaymentEntity where id = :hey";
+            Query query = session.createQuery(queryString);
+            query.setParameter("hey", tablePayments.getValueAt(tablePayments.getSelectedRow(), 0));
+            query.executeUpdate();
+            session.close();
+            updateTable(StorePayments.allObjectWithClass(PaymentEntity.class));
+        }
     }
     private void blockIdColumn(){
         TableColumnModel cm = tablePayments.getColumnModel();

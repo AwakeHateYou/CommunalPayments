@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e366a267-f926-43de-94ee-ec82ad0c8434" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreateDebtorsListController.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreateDebtorsListController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreatePaymentController.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreatePaymentController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/Menu.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/Menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/PaymentsController.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/PaymentsController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java" />
     </list>
@@ -80,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PaymentsController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PaymentsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70689654">
-              <caret line="93" column="24" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="93" column="33" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1671#1672#0" expanded="true" />
@@ -95,10 +91,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PaymentEntity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PaymentEntity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/model/PaymentEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.45043105">
               <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding>
                 <element signature="e#2083#2084#0" expanded="true" />
@@ -768,7 +764,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452699496047</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="delete work">
+      <created>1452703231316</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1452703231316</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -829,7 +831,8 @@
     <MESSAGE value="fix connection string" />
     <MESSAGE value="half work" />
     <MESSAGE value="new ui and update now work" />
-    <option name="LAST_COMMIT_MESSAGE" value="new ui and update now work" />
+    <MESSAGE value="delete work" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1231,14 +1234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/store/StorePayments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreatePaymentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1263,17 +1258,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/model/PaymentEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="e#2083#2084#0" expanded="true" />
-            <element signature="e#2140#2141#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreateDebtorsListController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1284,13 +1268,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70689654">
-          <caret line="93" column="24" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="93" column="33" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1671#1672#0" expanded="true" />
             <element signature="e#1707#1708#0" expanded="true" />
             <element signature="e#1827#1835#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/store/StorePayments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/model/PaymentEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45043105">
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding>
+            <element signature="e#2083#2084#0" expanded="true" />
+            <element signature="e#2140#2141#0" expanded="true" />
           </folding>
         </state>
       </provider>
