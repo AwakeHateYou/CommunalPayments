@@ -15,6 +15,7 @@ public class PaymentsController extends JFrame {
 
     private JTable tablePayments;
     private JScrollPane scrollPane;
+    private JButton pay, delete;
 
     public PaymentsController() {
         initComponents();
@@ -26,8 +27,10 @@ public class PaymentsController extends JFrame {
     }
     private void initComponents() {
         setTitle("Payments");
-        setMenuBar();
 
+        pay = new JButton("Оплатить счет");
+        delete = new JButton("Удалить счет");
+        setMenuBar();
         tablePayments = new JTable();
         displayResult(StorePayments.allObjectWithClass(PaymentEntity.class));
         scrollPane = new JScrollPane(tablePayments);
@@ -38,6 +41,8 @@ public class PaymentsController extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         Menu menu = new Menu(this);
         menuBar.add(menu);
+        menuBar.add(pay);
+        menuBar.add(delete);
         setJMenuBar(menuBar);
     }
     public void updateTable(java.util.List<PaymentEntity> items){
