@@ -108,12 +108,10 @@ public class CreatePaymentController extends JFrame{
     private void checkFieldCorrect(String price, String priceDone) throws Exception{
         if(fioTextField.getText().isEmpty())
             throw new EmptyFieldException();
-        if(Double.parseDouble(price) < Double.parseDouble(priceDone)){
+        if(Double.parseDouble(price) < Double.parseDouble(priceDone))
             throw new PayOverPriceException();
-        }
-        if(Double.parseDouble(price) < 0 || Double.parseDouble(priceDone) < 0){
+        if(Double.parseDouble(price) < 0 || Double.parseDouble(priceDone) < 0)
             throw  new NotAPositiveValueException();
-        }
     }
     /**
      * Ловит все исключения.

@@ -5,6 +5,6 @@ package terentev.evgenyi.util;
  */
 public class NotAPositiveValueException extends Exception {
     public NotAPositiveValueException(){
-        super("Введено отрицательное значение");
+        super("Введено неположительное значение");
     }
 }

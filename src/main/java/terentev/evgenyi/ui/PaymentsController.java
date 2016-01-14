@@ -1,5 +1,6 @@
 package terentev.evgenyi.ui;
 
+import jdk.nashorn.internal.runtime.ECMAException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import terentev.evgenyi.model.PaymentEntity;
@@ -53,9 +54,8 @@ public class PaymentsController extends JFrame {
         setJMenuBar(menuBar);
     }
     private void bind(){
-        delete.addActionListener(e -> deletePayment());
-        pay.addActionListener(e -> payThePrice());
-
+            delete.addActionListener(e -> deletePayment());
+            pay.addActionListener(e -> payThePrice());
     }
     public void updateTable(java.util.List<PaymentEntity> items){
         displayResult(items);
@@ -101,7 +101,6 @@ public class PaymentsController extends JFrame {
     private void blockIdColumn(){
         TableColumnModel cm = tablePayments.getColumnModel();
         cm.getColumn(0).setMaxWidth(0);
-        //cm.getColumn(0).setPreferredWidth(0);
         cm.getColumn(0).setResizable(false);
     }
 
