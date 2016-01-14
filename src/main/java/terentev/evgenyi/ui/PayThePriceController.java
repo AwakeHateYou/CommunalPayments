@@ -85,20 +85,18 @@ public class PayThePriceController extends JFrame{
      */
     private void payThePrice(JTable tablePayments){
         try{
-            if (tablePayments.getSelectedRow() >= 0) {
-                checkValues(tablePayments);
-                String pay = price.getText();
-                Session session = StorePayments.getSession();
-                String queryString = "from PaymentEntity where id = :ID";
-                Query query = session.createQuery(queryString);
-                query.setParameter("ID", tablePayments.getValueAt(tablePayments.getSelectedRow(), 0));
-                PaymentEntity payment = (PaymentEntity) query.uniqueResult();
-                payment.setPriceDone(Double.parseDouble(pay) + (Double.parseDouble(tablePayments.getValueAt(tablePayments.getSelectedRow(), 3).toString())));
-                tablePayments.setValueAt(Double.parseDouble(pay) + (Double.parseDouble(tablePayments.getValueAt(tablePayments.getSelectedRow(), 3).toString())),
-                        tablePayments.getSelectedRow(), 3);
-                StorePayments.save(query.uniqueResult());
-                session.close();
-            }
+            checkValues(tablePayments);
+            String pay = price.getText();
+            Session session = StorePayments.getSession();
+            String queryString = "from PaymentEntity where id = :ID";
+            Query query = session.createQuery(queryString);
+            query.setParameter("ID", tablePayments.getValueAt(tablePayments.getSelectedRow(), 0));
+            PaymentEntity payment = (PaymentEntity) query.uniqueResult();
+            payment.setPriceDone(Double.parseDouble(pay) + (Double.parseDouble(tablePayments.getValueAt(tablePayments.getSelectedRow(), 3).toString())));
+            tablePayments.setValueAt(Double.parseDouble(pay) + (Double.parseDouble(tablePayments.getValueAt(tablePayments.getSelectedRow(), 3).toString())),
+                    tablePayments.getSelectedRow(), 3);
+            StorePayments.save(query.uniqueResult());
+            session.close();
         }catch (Exception e){
             catchException(e);
         }

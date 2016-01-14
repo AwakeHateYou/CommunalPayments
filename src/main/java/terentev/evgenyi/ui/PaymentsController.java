@@ -132,9 +132,13 @@ public class PaymentsController extends JFrame {
      * Оплатить выбраный платеж.
      */
     private void payThePrice(){
-        PayThePriceController window = new PayThePriceController(tablePayments);
-        window.pack();
-        window.setVisible(true);
+        if (tablePayments.getSelectedRow() >= 0) {
+            PayThePriceController window = new PayThePriceController(tablePayments);
+            window.pack();
+            window.setVisible(true);
+        }else{
+            showMessage();
+        }
     }
 
     /**
@@ -149,9 +153,17 @@ public class PaymentsController extends JFrame {
             StorePayments.deleteObject(query.uniqueResult());
             updateTable(StorePayments.allObjectWithClass(PaymentEntity.class));
             session.close();
+        }else{
+            showMessage();
         }
     }
 
+    /**
+     * Показывает информационное сообщение.
+     */
+    private void showMessage(){
+        new JOptionPane().showMessageDialog(null, "Необходимо выделить счет!", "Alert", JOptionPane.INFORMATION_MESSAGE);
+    }
     /**
      * Сокрытие первого столбца.
      */
