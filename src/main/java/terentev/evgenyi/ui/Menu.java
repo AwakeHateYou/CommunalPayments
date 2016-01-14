@@ -40,6 +40,11 @@ public class Menu extends JMenu {
             window.pack();
             window.setVisible(true);
         });
+        sumPaymentByFIO.addActionListener(e -> {
+            SearchPaymentsByFIOController window = new SearchPaymentsByFIOController();
+            window.pack();
+            window.setVisible(true);
+        });
     }
 
     /**
