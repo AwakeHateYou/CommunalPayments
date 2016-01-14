@@ -42,28 +42,46 @@ public class StorePaymentsTests {
         session.close();
     }
     /**
-     * Тест получения списка объектов
+     * Тест создания сесссии
      * @throws Exception исключение
      */
     @Test
-    public void testAllObjectWithClass() throws Exception {
-        Object[] payments = StorePayments.allObjectWithClass(PaymentEntity.class).toArray();
-        Assert.assertFalse("More when one space founded!", testStore(payments));
-
+    public void testGetSession() throws Exception {
+        Session session = StorePayments.getSession();
+        assertNotNull(session);
+        session.close();
     }
+    /**
+     * Тест сохранения
+     * @throws Exception исключение
+     */
+    @Test
+    public void testSave() throws Exception {
+        assertEquals(1, StorePayments.allObjectWithClass(PaymentEntity.class).toArray().length);
+    }
+    /**
+     * Тест удаления объекта из базы
+     * @throws Exception исключение
+     */
+    @Test
+    public void testDeleteObject() throws Exception {
+        Object[] payments = StorePayments.allObjectWithClass(PaymentEntity.class).toArray();
+        assertEquals(1, payments.length);
 
-    private boolean testStore(Object[] payments){
-        for(PaymentEntity payment : (PaymentEntity[]) payments){
-            if(payment.getFio().equals("Тестовый человек"))
-                if(payment.getPrice() == 1300)
-                    if(payment.getPriceDone() == 500)
-                        if(payment.getPayType().equals("Квартплата")) {
-                            System.out.print("Hey");
-                            return false;
-                        }
-        }
+        PaymentEntity payment = new PaymentEntity();
+        payment.setFio("Тестовый человек 2");
+        payment.setPrice(1300);
+        payment.setPriceDone(500);
+        payment.setPayType("Квартплата");
+        StorePayments.save(payment);
 
-        return true;
+        payments = StorePayments.allObjectWithClass(PaymentEntity.class).toArray();
+        assertEquals(2, payments.length);
+
+        StorePayments.deleteObject(payments[payments.length - 1]);
+
+        payments = StorePayments.allObjectWithClass(PaymentEntity.class).toArray();
+        assertEquals(1, payments.length);
     }
 
 }
