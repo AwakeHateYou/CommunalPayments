@@ -74,18 +74,8 @@ public class StorePayments {
      * @return список объектов указанного класса
      */
     public static List allObjectWithClass(Class aClass) {
-        return allObjectWithClassAndSortKey(aClass, "id");
-    }
-
-    /**
-     * Возвращает список объектов указанного класса с сортировкой по ключу
-     * @param aClass нужный класс объектов
-     * @param sortKey ключ для сортировки
-     * @return список объектов указанного класса, отсортированный по ключу
-     */
-    public static List allObjectWithClassAndSortKey(Class aClass, String sortKey) {
         Session retrieveSession = getSession();
-        List list = retrieveSession.createCriteria(aClass).addOrder(Order.asc(sortKey)).list();
+        List list = retrieveSession.createCriteria(aClass).addOrder(Order.asc("id")).list();
         retrieveSession.close();
 
         return list;

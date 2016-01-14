@@ -1,33 +1,42 @@
 package terentev.evgenyi.ui;
 
-import jdk.nashorn.internal.runtime.ECMAException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import terentev.evgenyi.model.PaymentEntity;
 import terentev.evgenyi.store.StorePayments;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
-import java.util.Locale;
 import java.util.Vector;
 
 /**
  * Окно, отображающее все счета.
+ * @autor Терентьев Евгений
  */
 public class PaymentsController extends JFrame {
-
+    /**
+     * Геттер для таблицы.
+     * @return таблица с счетами
+     */
     public JTable getTablePayments() {
         return tablePayments;
     }
 
+    /**
+     * Таблица со счетами.
+     */
     private JTable tablePayments;
     private JScrollPane scrollPane;
+    /**
+     * Кнопки.
+     */
     private JButton pay, delete;
 
+    /**
+     * Конструктор.
+     */
     public PaymentsController() {
         initComponents();
         setPreferredSize(new Dimension(500, 300));
@@ -36,9 +45,12 @@ public class PaymentsController extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
+
+    /**
+     * Инициализация компонентов.
+     */
     private void initComponents() {
         setTitle("Payments");
-
         pay = new JButton("Оплатить счет");
         delete = new JButton("Удалить счет");
         setMenuBar();
@@ -49,6 +61,9 @@ public class PaymentsController extends JFrame {
         bind();
     }
 
+    /**
+     * Разместить меню.
+     */
     private void setMenuBar() {
         JMenuBar menuBar = new JMenuBar();
         Menu menu = new Menu(this);
@@ -57,13 +72,27 @@ public class PaymentsController extends JFrame {
         menuBar.add(delete);
         setJMenuBar(menuBar);
     }
+
+    /**
+     * Назначить кнопки.
+     */
     private void bind(){
             delete.addActionListener(e -> deletePayment());
             pay.addActionListener(e -> payThePrice());
     }
+
+    /**
+     * Обновить таблицу
+     * @param items база
+     */
     public void updateTable(java.util.List<PaymentEntity> items){
         displayResult(items);
     }
+
+    /**
+     * Отобразить базу в таблицу.
+     * @param items база
+     */
     private void displayResult(java.util.List<PaymentEntity> items) {
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
@@ -72,7 +101,6 @@ public class PaymentsController extends JFrame {
         tableHeaders.add("Сумма платежа");
         tableHeaders.add("Оплачено");
         tableHeaders.add("Вид платежа");
-
         for(PaymentEntity payment : items) {
             Vector<Object> oneRow = new Vector<>();
             oneRow.add(payment.getId());
@@ -82,15 +110,22 @@ public class PaymentsController extends JFrame {
             oneRow.add(payment.getPayType());
             tableData.add(oneRow);
         }
-
         tablePayments.setModel(new DefaultTableModel(tableData, tableHeaders));
         blockIdColumn();
     }
+
+    /**
+     * Оплатить выбраный платеж.
+     */
     private void payThePrice(){
         PayThePriceController window = new PayThePriceController(tablePayments);
         window.pack();
         window.setVisible(true);
     }
+
+    /**
+     * Удалить выбранные платеж из базы.
+     */
     private void deletePayment() {
         if(tablePayments.getSelectedRow() >= 0) {
             Session session = StorePayments.getSession();
@@ -102,12 +137,20 @@ public class PaymentsController extends JFrame {
             session.close();
         }
     }
+
+    /**
+     * Сокрытие первого столбца.
+     */
     private void blockIdColumn(){
         TableColumnModel cm = tablePayments.getColumnModel();
         cm.getColumn(0).setMaxWidth(0);
         cm.getColumn(0).setResizable(false);
     }
 
+    /**
+     * Точка входа в программу.
+     * @param args
+     */
     public static void main(String[] args) {
         new PaymentsController();
     }

@@ -15,23 +15,46 @@ import java.awt.*;
  * Окно с возможностью оплаты счета.
  */
 public class PayThePriceController extends JFrame{
+    /**
+     * Поле с ценой.
+     */
     private JTextField price;
+    /**
+     * Кнопки.
+     */
     private JButton ok, cancel;
+
+    /**
+     * Конструктор.
+     * @param tablePayments таблица с счетами
+     */
     public PayThePriceController(JTable tablePayments){
         setLayout(new GridLayout(2, 1));
         initialize();
         bind(tablePayments);
 
     }
+
+    /**
+     * Инициализация полей.
+     */
     private void initialize(){
         initPrice();
         initButtons();
     }
+
+    /**
+     * Инициализация цены.
+     */
     private void initPrice(){
         price = new JTextField();
         price.setPreferredSize(new Dimension(24, 24));
         getContentPane().add(price);
     }
+
+    /**
+     * Инициализация кнопок.
+     */
     private void initButtons(){
         ok = new JButton("Принять");
         cancel = new JButton("Отменить");
@@ -40,6 +63,11 @@ public class PayThePriceController extends JFrame{
         buttons.add(cancel);
         getContentPane().add(buttons);
     }
+
+    /**
+     * Назначение кнопок.
+     * @param tablePayments таблица платежей
+     */
     private void bind(JTable tablePayments){
         ok.addActionListener(e -> {
             payThePrice(tablePayments);
@@ -50,6 +78,11 @@ public class PayThePriceController extends JFrame{
             PayThePriceController.this.dispose();
         });
     }
+
+    /**
+     * Оплата выделенного в таблице счета.
+     * @param tablePayments таблица
+     */
     private void payThePrice(JTable tablePayments){
         try{
             if (tablePayments.getSelectedRow() >= 0) {
@@ -69,9 +102,13 @@ public class PayThePriceController extends JFrame{
         }catch (Exception e){
             catchException(e);
         }
-
-
     }
+
+    /**
+     * Проверка полей.
+     * @param tablePayments таблица счетов
+     * @throws Exception
+     */
     private void checkValues(JTable tablePayments) throws Exception{
         if(price.getText().isEmpty())
             throw  new EmptyFieldException();
