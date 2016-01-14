@@ -169,7 +169,7 @@ public class PaymentsController extends JFrame {
      */
     private void blockIdColumn(){
         TableColumnModel cm = tablePayments.getColumnModel();
-        cm.getColumn(0).setMaxWidth(0);
+        cm.getColumn(0).setMaxWidth(1);
         cm.getColumn(0).setResizable(false);
     }
 
