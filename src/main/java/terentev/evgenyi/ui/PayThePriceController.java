@@ -29,6 +29,7 @@ public class PayThePriceController extends JFrame{
     }
     private void initPrice(){
         price = new JTextField();
+        price.setPreferredSize(new Dimension(24, 24));
         getContentPane().add(price);
     }
     private void initButtons(){
