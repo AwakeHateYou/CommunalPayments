@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e366a267-f926-43de-94ee-ec82ad0c8434" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreateDebtorsListController.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreateDebtorsListController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreatePaymentController.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreatePaymentController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/Menu.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/Menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/PaymentsController.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/PaymentsController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreateDebtorsListController.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreateDebtorsListController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreatePaymentController.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreatePaymentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/Menu.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/SearchPaymentsByFIOController.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/SearchPaymentsByFIOController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/EmptyFieldException.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/EmptyFieldException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/NotAPositiveValueException.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/NotAPositiveValueException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/PayOverPriceException.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/PayOverPriceException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/WrongEdgesException.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/WrongEdgesException.java" />
     </list>
     <ignored path="CommunalPayments.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,10 +54,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreatePaymentController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreatePaymentController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreatePaymentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36637932">
+            <state vertical-scroll-proportion="0.0">
               <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
               <folding />
             </state>
@@ -76,7 +81,20 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/SearchPaymentsByFIOController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="55" column="10" selection-start-line="54" selection-start-column="0" selection-end-line="62" selection-end-column="5" />
+              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2880#2888#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PayThePriceController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PayThePriceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.9676725">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,14 +102,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PayThePriceController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PayThePriceController.java">
+      <file leaf-file-name="NotAPositiveValueException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/NotAPositiveValueException.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+              <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#211#212#0" expanded="true" />
+                <element signature="e#268#269#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmptyFieldException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/EmptyFieldException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -140,16 +169,16 @@
         <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/store/StorePayments.java" />
         <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/model/PaymentEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/PayOverPriceException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/EmptyFieldException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/NotAPositiveValueException.java" />
         <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PayThePriceController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/WrongEdgesException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/SearchPaymentsByFIOController.java" />
         <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreateDebtorsListController.java" />
         <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/Menu.java" />
         <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreatePaymentController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/WrongEdgesException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/PayOverPriceException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/NotAPositiveValueException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/EmptyFieldException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/SearchPaymentsByFIOController.java" />
       </list>
     </option>
   </component>
@@ -892,7 +921,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452780993284</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="tons of comments">
+      <created>1452786738230</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1452786738230</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -962,7 +997,8 @@
     <MESSAGE value="debtors done" />
     <MESSAGE value="fios" />
     <MESSAGE value="fios done" />
-    <option name="LAST_COMMIT_MESSAGE" value="fios done" />
+    <MESSAGE value="tons of comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="tons of comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1283,83 +1319,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/WrongEdgesException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-          <folding>
-            <element signature="e#148#149#0" expanded="true" />
-            <element signature="e#198#199#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/NotAPositiveValueException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-          <folding>
-            <element signature="e#183#184#0" expanded="true" />
-            <element signature="e#240#241#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/EmptyFieldException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/PayOverPriceException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-          <folding>
-            <element signature="e#173#174#0" expanded="true" />
-            <element signature="e#224#225#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PayThePriceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/model/PaymentEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#661#662#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/SearchPaymentsByFIOController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="10" selection-start-line="54" selection-start-column="0" selection-end-line="62" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1381,9 +1345,82 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/CreatePaymentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36637932">
+        <state vertical-scroll-proportion="0.0">
           <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/PayOverPriceException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+          <folding>
+            <element signature="e#201#202#0" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/NotAPositiveValueException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+          <folding>
+            <element signature="e#211#212#0" expanded="true" />
+            <element signature="e#268#269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/EmptyFieldException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/util/WrongEdgesException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding>
+            <element signature="e#177#178#0" expanded="true" />
+            <element signature="e#227#228#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PaymentsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#661#662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/SearchPaymentsByFIOController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2880#2888#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/PayThePriceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9676725">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

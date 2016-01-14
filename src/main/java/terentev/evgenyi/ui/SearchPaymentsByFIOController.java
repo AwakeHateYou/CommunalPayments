@@ -12,12 +12,29 @@ import java.util.Vector;
 
 /**
  * Вывод списка счетов по ФИО с подсчетом суммы платежей.
+ * @author Терентьев Евгений
  */
 public class SearchPaymentsByFIOController extends JFrame{
+    /**
+     * Выбор ФИО
+     */
     private JComboBox<Object> fiosList;
+    /**
+     * Место для таблицы.
+     */
     private JScrollPane scrollPane;
+    /**
+     * Таблица.
+     */
     private JTable sortedTable;
+    /**
+     * Сумма платежей.
+     */
     private JTextField sumPayments;
+
+    /**
+     * Конструктор.
+     */
     public SearchPaymentsByFIOController(){
         setLayout(new BorderLayout());
         initialize();
@@ -25,22 +42,38 @@ public class SearchPaymentsByFIOController extends JFrame{
         setPreferredSize(new Dimension(300, 300));
         bind();
     }
+
+    /**
+     * Инициализация коспонентов окна.
+     */
     private void initialize(){
         initFioList();
         initScrollPane();
         initSumPane();
     }
+
+    /**
+     * Инициализация выбора ФИО.
+     */
     private void initFioList(){
         fiosList = new JComboBox<>(fillFioList());
         fiosList.setPreferredSize(new Dimension(200, 24));
         getContentPane().add(fiosList, BorderLayout.NORTH);
 
     }
+
+    /**
+     * Инициализация таблицы.
+     */
     private void initScrollPane(){
         sortedTable = new JTable();
         scrollPane = new JScrollPane(sortedTable);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
     }
+
+    /**
+     * Инициализация окна с суммой.
+     */
     public void initSumPane(){
         JPanel sumPanel = new JPanel();
         sumPayments = new JTextField();
@@ -49,9 +82,18 @@ public class SearchPaymentsByFIOController extends JFrame{
         sumPanel.add(sumPayments);
         getContentPane().add(sumPanel, BorderLayout.SOUTH);
     }
+
+    /**
+     * Назначение кнопок.
+     */
     private void bind(){
         fiosList.addActionListener(e -> fillTablePayments(StorePayments.allObjectWithClass(PaymentEntity.class)));
     }
+
+    /**
+     * Заполнение массива уникальных ФИО
+     * @return массив ФИО
+     */
     private Object[] fillFioList(){
         Object[] listFios;
         Session session = StorePayments.getSession();
@@ -61,6 +103,11 @@ public class SearchPaymentsByFIOController extends JFrame{
         session.close();
         return listFios;
     }
+
+    /**
+     * Заполнение таблицы.
+     * @param items база
+     */
     private void fillTablePayments(java.util.List<PaymentEntity> items){
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
@@ -81,6 +128,10 @@ public class SearchPaymentsByFIOController extends JFrame{
         sortedTable.setModel(new DefaultTableModel(tableData, tableHeaders));
         generateSumPayments();
     }
+
+    /**
+     * Создание суммы платежей.
+     */
     private void generateSumPayments(){
         Double sum = 0.0;
         for(int i = 0; i < sortedTable.getRowCount(); i++){
