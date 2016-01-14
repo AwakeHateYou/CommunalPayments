@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e366a267-f926-43de-94ee-ec82ad0c8434" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/SearchPaymentsByFIOController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreateDebtorsListController.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/CreateDebtorsListController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/Menu.class" afterPath="$PROJECT_DIR$/target/classes/terentev/evgenyi/ui/Menu.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/Menu.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/Menu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/SearchPaymentsByFIOController.java" afterPath="$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/SearchPaymentsByFIOController.java" />
     </list>
     <ignored path="CommunalPayments.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,11 +72,9 @@
       <file leaf-file-name="SearchPaymentsByFIOController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/SearchPaymentsByFIOController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34051725">
-              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.3297414">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -878,7 +875,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452775133126</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fios">
+      <created>1452779605197</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1452779605197</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -946,7 +949,8 @@
     <MESSAGE value="paytheprice done" />
     <MESSAGE value="debtors half done" />
     <MESSAGE value="debtors done" />
-    <option name="LAST_COMMIT_MESSAGE" value="debtors done" />
+    <MESSAGE value="fios" />
+    <option name="LAST_COMMIT_MESSAGE" value="fios" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1357,11 +1361,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/terentev/evgenyi/ui/SearchPaymentsByFIOController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34051725">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.3297414">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>

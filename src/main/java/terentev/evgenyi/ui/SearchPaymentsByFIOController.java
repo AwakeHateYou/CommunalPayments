@@ -8,7 +8,6 @@ import terentev.evgenyi.store.StorePayments;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.List;
 import java.util.Vector;
 
 /**
@@ -29,6 +28,7 @@ public class SearchPaymentsByFIOController extends JFrame{
     private void initialize(){
         initFioList();
         initScrollPane();
+        initSumPane();
     }
     private void initFioList(){
         fiosList = new JComboBox<>(fillFioList());
@@ -40,6 +40,14 @@ public class SearchPaymentsByFIOController extends JFrame{
         sortedTable = new JTable();
         scrollPane = new JScrollPane(sortedTable);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
+    }
+    public void initSumPane(){
+        JPanel sumPanel = new JPanel();
+        sumPayments = new JTextField();
+        sumPayments.setPreferredSize(new Dimension(100, 24));
+        sumPanel.add(new JLabel("Сумма платежей: "));
+        sumPanel.add(sumPayments);
+        getContentPane().add(sumPanel, BorderLayout.SOUTH);
     }
     private void bind(){
         fiosList.addActionListener(e -> fillTablePayments(StorePayments.allObjectWithClass(PaymentEntity.class)));
@@ -71,5 +79,13 @@ public class SearchPaymentsByFIOController extends JFrame{
             }
         }
         sortedTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+        generateSumPayments();
+    }
+    private void generateSumPayments(){
+        Double sum = 0.0;
+        for(int i = 0; i < sortedTable.getRowCount(); i++){
+            sum += Double.parseDouble(sortedTable.getValueAt(i, 2).toString());
+        }
+        sumPayments.setText(sum.toString());
     }
 }
