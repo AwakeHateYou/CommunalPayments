@@ -21,17 +21,26 @@ public class CreateDebtorsListController extends JFrame{
     }
     private void initialize(){
         setLayout(new GridLayout(3, 1));
+        setPreferredSize(new Dimension(250, 300));
         initScrollPane();
         initSpinnersPane();
         initButtonPane();
         findDebtors();
         bind();
     }
+
+    /**
+     * Инициализация панели с отображение должников.
+     */
     private void initScrollPane(){
         listDebtors = new JList<>();
         scrollPane = new JScrollPane(listDebtors);
         getContentPane().add(scrollPane);
     }
+
+    /**
+     * Инициализация панели с выбором размера долга.
+     */
     private void initSpinnersPane(){
         from = new JSpinner();
         from.setValue(1);
@@ -50,10 +59,19 @@ public class CreateDebtorsListController extends JFrame{
         spinners.add(to);
         getContentPane().add(spinners);
     }
+
+    /**
+     * Инициализация кнопок.
+     */
     private void initButtonPane(){
         accept = new JButton("Приянть");
+        accept.setPreferredSize(new Dimension(50, 24));
         getContentPane().add(accept);
     }
+
+    /**
+     * Назначение действий кнопкам.
+     */
     private void bind(){
         accept.addActionListener(e -> findDebtors());
         inRange.addActionListener(e -> activateSpinners());
@@ -67,7 +85,7 @@ public class CreateDebtorsListController extends JFrame{
             Session session = StorePayments.getSession();
             String queryString = "select fio from PaymentEntity payment where payment.price > payment.priceDone";
             if (inRange.isSelected()) {
-                queryString += " and payment.price - payment.priceDone > " + from.getValue() + " and payment.price - payment.priceDone < " + to.getValue();
+                queryString += " and payment.price - payment.priceDone >= " + from.getValue() + " and payment.price - payment.priceDone <= " + to.getValue();
             } else {
                 queryString += " order by payment.fio";
             }
@@ -96,9 +114,9 @@ public class CreateDebtorsListController extends JFrame{
         }
     }
     private void checkFieldCorrect() throws Exception{
-        if(Double.parseDouble(from.getValue().toString()) < 0 || Double.parseDouble(from.getValue().toString()) <= 0)
+        if(Double.parseDouble(from.getValue().toString()) < 0 || Double.parseDouble(to.getValue().toString()) <= 0)
             throw new NotAPositiveValueException();
-        if(Double.parseDouble(from.getValue().toString()) > Double.parseDouble(from.getValue().toString()))
+        if(Double.parseDouble(from.getValue().toString()) > Double.parseDouble(to.getValue().toString()))
             throw new WrongEdgesException();
 
     }
