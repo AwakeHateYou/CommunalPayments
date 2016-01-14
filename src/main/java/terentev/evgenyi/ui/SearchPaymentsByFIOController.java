@@ -66,7 +66,14 @@ public class SearchPaymentsByFIOController extends JFrame{
      * Инициализация таблицы.
      */
     private void initScrollPane(){
-        sortedTable = new JTable();
+        sortedTable = new JTable(){
+            @Override
+            public boolean isCellEditable ( int row, int column )
+            {
+                return false;
+            }
+        };
+        sortedTable.getTableHeader().setReorderingAllowed(false);
         scrollPane = new JScrollPane(sortedTable);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
     }
@@ -78,6 +85,7 @@ public class SearchPaymentsByFIOController extends JFrame{
         JPanel sumPanel = new JPanel();
         sumPayments = new JTextField();
         sumPayments.setPreferredSize(new Dimension(100, 24));
+        sumPayments.setEditable(false);
         sumPanel.add(new JLabel("Сумма платежей: "));
         sumPanel.add(sumPayments);
         getContentPane().add(sumPanel, BorderLayout.SOUTH);
@@ -109,7 +117,7 @@ public class SearchPaymentsByFIOController extends JFrame{
      * @param items база
      */
     private void fillTablePayments(java.util.List<PaymentEntity> items){
-        Vector<String> tableHeaders = new Vector<String>();
+        Vector<String> tableHeaders = new Vector<>();
         Vector tableData = new Vector();
         tableHeaders.add("ФИО");
         tableHeaders.add("Сумма платежа");

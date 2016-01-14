@@ -54,11 +54,25 @@ public class PaymentsController extends JFrame {
         pay = new JButton("Оплатить счет");
         delete = new JButton("Удалить счет");
         setMenuBar();
-        tablePayments = new JTable();
+        setUpTable();
+        bind();
+    }
+
+    /**
+     * Размещение и настройка таблицы.
+     */
+    private void setUpTable(){
+        tablePayments = new JTable(){
+            @Override
+            public boolean isCellEditable ( int row, int column )
+            {
+                return false;
+            }
+        };
+        tablePayments.getTableHeader().setReorderingAllowed(false);
         displayResult(StorePayments.allObjectWithClass(PaymentEntity.class));
         scrollPane = new JScrollPane(tablePayments);
         getContentPane().add(scrollPane);
-        bind();
     }
 
     /**
@@ -94,7 +108,7 @@ public class PaymentsController extends JFrame {
      * @param items база
      */
     private void displayResult(java.util.List<PaymentEntity> items) {
-        Vector<String> tableHeaders = new Vector<String>();
+        Vector<String> tableHeaders = new Vector<>();
         Vector tableData = new Vector();
         tableHeaders.add("");
         tableHeaders.add("ФИО");
