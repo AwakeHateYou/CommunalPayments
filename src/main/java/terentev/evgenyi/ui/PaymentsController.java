@@ -20,6 +20,10 @@ import java.util.Vector;
  */
 public class PaymentsController extends JFrame {
 
+    public JTable getTablePayments() {
+        return tablePayments;
+    }
+
     private JTable tablePayments;
     private JScrollPane scrollPane;
     private JButton pay, delete;

@@ -8,17 +8,41 @@ import terentev.evgenyi.util.WrongEdgesException;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Arc2D;
 
+/**
+ * Окно, выводящее список должников в диапазоне.
+ * @autor Терентьев Евгений
+ */
 public class CreateDebtorsListController extends JFrame{
+    /**
+     * Cписок должников, выведенный на экран.
+     */
     private JList<Object> listDebtors;
+    /**
+     * Переменные диапазона.
+     */
     private JSpinner from, to;
     private JButton accept;
+    /**
+     * Выбрать в диапазоне.
+     */
     private JRadioButton inRange;
+    /**
+     * Место для таблицы.
+     */
     private JScrollPane scrollPane;
-    public CreateDebtorsListController(){
+    /**
+     * Ссылка на главное окно.
+     */
+    private PaymentsController mainWindow;
+    public CreateDebtorsListController(PaymentsController mainWindow){
+        this.mainWindow = mainWindow;
         initialize();
     }
+
+    /**
+     * Инициализация окна с списком должников.
+     */
     private void initialize(){
         setLayout(new GridLayout(3, 1));
         setPreferredSize(new Dimension(250, 300));
@@ -77,24 +101,34 @@ public class CreateDebtorsListController extends JFrame{
         inRange.addActionListener(e -> activateSpinners());
     }
     /**
-     * Поиск всех долждников
+     * Поиск всех долждников в заданном интервале.
      */
     private void findDebtors() {
         try {
             checkFieldCorrect();
-            Session session = StorePayments.getSession();
-            String queryString = "select fio from PaymentEntity payment where payment.price > payment.priceDone";
-            if (inRange.isSelected()) {
-                queryString += " and payment.price - payment.priceDone >= " + from.getValue() + " and payment.price - payment.priceDone <= " + to.getValue();
-            } else {
-                queryString += " order by payment.fio";
+            DefaultListModel<Object> listDebtorsModel = new DefaultListModel<>();
+            Object[] fios = uniqFIOs();
+            for(int i = 0; i < fios.length; i++) {
+                double paySum = 0;
+                double doneSum = 0;
+                for (int j = 0; j < mainWindow.getTablePayments().getRowCount(); j++) {
+                    if (mainWindow.getTablePayments().getValueAt(j, 1).toString().equals(fios[i].toString())) {
+                        paySum += Double.parseDouble(mainWindow.getTablePayments().getValueAt(j, 2).toString());
+                        doneSum += Double.parseDouble(mainWindow.getTablePayments().getValueAt(j, 3).toString());
+                    }
+                }
+                if(inRange.isSelected()){
+                    double diff = paySum - doneSum;
+                    if (diff >= Double.parseDouble(from.getValue().toString()) && diff <= Double.parseDouble(to.getValue().toString())) {
+                        listDebtorsModel.addElement(fios[i]);
+                    }
+                }else {
+                    if (paySum > doneSum) {
+                        listDebtorsModel.addElement(fios[i]);
+                    }
+                }
+                listDebtors.setModel(listDebtorsModel);
             }
-            Query query = session.createQuery(queryString);
-//        query.setParameter("lowEdge", from.getValue());
-//        query.setParameter("upEdge", to.getValue());
-            listDebtors.setListData(query.list().toArray());
-
-            session.close();
         }catch (Exception e){
             catchException(e);
         }
@@ -113,12 +147,31 @@ public class CreateDebtorsListController extends JFrame{
             to.setEnabled(false);
         }
     }
+
+    /**
+     * Проверка введенных данных.
+     * @throws Exception
+     */
     private void checkFieldCorrect() throws Exception{
         if(Double.parseDouble(from.getValue().toString()) < 0 || Double.parseDouble(to.getValue().toString()) <= 0)
             throw new NotAPositiveValueException();
         if(Double.parseDouble(from.getValue().toString()) > Double.parseDouble(to.getValue().toString()))
             throw new WrongEdgesException();
 
+    }
+
+    /**
+     * Нахождение уникальных ФИО.
+     * @return массив уникальных ФИО
+     */
+    private Object[] uniqFIOs(){
+        Object[] listFios;
+        Session session = StorePayments.getSession();
+        String queryString = "select distinct fio from PaymentEntity order by fio";
+        Query query = session.createQuery(queryString);
+        listFios = query.list().toArray();
+        session.close();
+        return listFios;
     }
     /**
      * Ловит все исключения.

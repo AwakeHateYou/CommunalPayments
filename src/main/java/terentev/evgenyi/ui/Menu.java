@@ -7,11 +7,22 @@ import terentev.evgenyi.store.StorePayments;
 
 /**
  * Меню с действиями.
+ * @autor Терентьев Евгений
  */
 public class Menu extends JMenu {
-    JMenuItem addPayment, deletePayment, sumPaymentByFIO, listDebtors, listDebtorsInRange, payThePrice;
+    /**
+     * Элементы меню.
+     */
+    JMenuItem addPayment, sumPaymentByFIO, listDebtors;
+    /**
+     * Ссылка на главное окно.
+     */
     PaymentsController mainWindow;
 
+    /**
+     * Конструктор.
+     * @param mainWindow ссылка на главное окно.
+     */
     public Menu(PaymentsController mainWindow) {
         this.mainWindow = mainWindow;
         initComponents();
@@ -21,6 +32,9 @@ public class Menu extends JMenu {
         setVisible(true);
     }
 
+    /**
+     * Инициализация компонентов меню.
+     */
     private void initComponents() {
         this.setText("Меню");
         addPayment = new JMenuItem("Добавить платеж");
@@ -29,6 +43,9 @@ public class Menu extends JMenu {
         bind();
     }
 
+    /**
+     * Назначение действий кнопок.
+     */
     private void bind() {
         addPayment.addActionListener(e -> {
             CreatePaymentController window = new CreatePaymentController(mainWindow);
@@ -36,7 +53,7 @@ public class Menu extends JMenu {
             window.setVisible(true);
         });
         listDebtors.addActionListener(e -> {
-            CreateDebtorsListController window = new CreateDebtorsListController();
+            CreateDebtorsListController window = new CreateDebtorsListController(mainWindow);
             window.pack();
             window.setVisible(true);
         });

@@ -11,15 +11,32 @@ import java.awt.*;
 
 /**
  * Окно создания счета.
+ * @autor Терентьев Евгений
  */
 public class CreatePaymentController extends JFrame{
+    /**
+     * Поля для заполнения.
+     */
     private JTextField fioTextField;
     private JTextField priceTextField;
     private JTextField priceDoneTextField;
+    /**
+     * Выбор типа платежа.
+     */
     private JComboBox<String> typeListComboBox;
+    /**
+     * Ссылка на главное окно.
+     */
     private PaymentsController mainWindow;
+    /**
+     * Стандартные типы платежей.
+     */
     private String[] defaultTypes = {"Квартплата", "Плата за электроэнергию", "Плата за телефон"};
 
+    /**
+     * Конструктор.
+     * @param mainWindow сслка на главное окно
+     */
     public CreatePaymentController(PaymentsController mainWindow) {
         this.mainWindow = mainWindow;
         getContentPane().setLayout(new GridLayout(5, 1));
@@ -28,6 +45,9 @@ public class CreatePaymentController extends JFrame{
         setResizable(false);
     }
 
+    /**
+     * Добавление компонентов.
+     */
     private void initComponents() {
         setTitle("Добавление платежа");
         initFioLayout();
@@ -38,6 +58,9 @@ public class CreatePaymentController extends JFrame{
         pack();
     }
 
+    /**
+     * Инициализация поля с вводом ФИО.
+     */
     private void initFioLayout() {
         JPanel fioPanel = new JPanel();
         fioTextField = new JTextField();
@@ -47,6 +70,9 @@ public class CreatePaymentController extends JFrame{
         getContentPane().add(fioPanel);
     }
 
+    /**
+     * Инициализация поля с требуемой суммой.
+     */
     private void initPriceLayout() {
         JPanel pricePanel = new JPanel();
         priceTextField = new JTextField();
@@ -56,6 +82,9 @@ public class CreatePaymentController extends JFrame{
         getContentPane().add(pricePanel);
     }
 
+    /**
+     * Инициализация поля внесенной суммы.
+     */
     private void initPriceDefaultLayout() {
         JPanel priceDonePanel = new JPanel();
         priceDoneTextField = new JTextField();
@@ -65,6 +94,9 @@ public class CreatePaymentController extends JFrame{
         getContentPane().add(priceDonePanel);
     }
 
+    /**
+     * Инициализация выбора вида платежа.
+     */
     private void initTypeLayout() {
         JPanel typePanel = new JPanel();
         typeListComboBox = new JComboBox<>(defaultTypes);
@@ -73,6 +105,9 @@ public class CreatePaymentController extends JFrame{
         getContentPane().add(typePanel);
     }
 
+    /**
+     * Инициализация кнопок.
+     */
     private void initButtonLayout() {
         JPanel buttonPanel = new JPanel();
         JButton acceptButton = new JButton("Принять");
@@ -87,6 +122,9 @@ public class CreatePaymentController extends JFrame{
         getContentPane().add(buttonPanel);
     }
 
+    /**
+     * Добавление нового счета в базу.
+     */
     private void acceptListener() {
         try {
             String price = priceTextField.getText();
@@ -105,6 +143,13 @@ public class CreatePaymentController extends JFrame{
         }
 
     }
+
+    /**
+     * Проверка полей на корректность.
+     * @param price выставленная цена
+     * @param priceDone оплачено
+     * @throws Exception
+     */
     private void checkFieldCorrect(String price, String priceDone) throws Exception{
         if(fioTextField.getText().isEmpty())
             throw new EmptyFieldException();
