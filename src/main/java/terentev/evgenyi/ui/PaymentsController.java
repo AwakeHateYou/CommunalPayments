@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
+import java.util.Locale;
 import java.util.Vector;
 
 /**
@@ -53,6 +54,7 @@ public class PaymentsController extends JFrame {
     }
     private void bind(){
         delete.addActionListener(e -> deletePayment());
+        pay.addActionListener(e -> updateTable(StorePayments.allObjectWithClass(PaymentEntity.class)));
 
     }
     public void updateTable(java.util.List<PaymentEntity> items){
@@ -83,12 +85,13 @@ public class PaymentsController extends JFrame {
     private void deletePayment() {
         if(tablePayments.getSelectedRow() >= 0) {
             Session session = StorePayments.getSession();
-            String queryString = "delete PaymentEntity where id = :hey";
+            String queryString = "from PaymentEntity where id = :ID";
             Query query = session.createQuery(queryString);
-            query.setParameter("hey", tablePayments.getValueAt(tablePayments.getSelectedRow(), 0));
-            query.executeUpdate();
-            session.close();
+            query.setParameter("ID", tablePayments.getValueAt(tablePayments.getSelectedRow(), 0));
+            StorePayments.deleteObject(query.uniqueResult());
             updateTable(StorePayments.allObjectWithClass(PaymentEntity.class));
+            session.close();
+
         }
     }
     private void blockIdColumn(){

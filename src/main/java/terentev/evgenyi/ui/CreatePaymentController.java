@@ -2,6 +2,7 @@ package terentev.evgenyi.ui;
 
 import terentev.evgenyi.model.PaymentEntity;
 import terentev.evgenyi.store.StorePayments;
+import terentev.evgenyi.util.EmptyFieldException;
 import terentev.evgenyi.util.NotAPositiveValueException;
 import terentev.evgenyi.util.PayOverPriceException;
 
@@ -90,15 +91,9 @@ public class CreatePaymentController extends JFrame{
         try {
             String price = priceTextField.getText();
             String priceDone = priceDoneTextField.getText();
-
+            checkFieldCorrect(price, priceDone);
             PaymentEntity paymentEntity = new PaymentEntity();
             paymentEntity.setFio(fioTextField.getText());
-            if(Double.parseDouble(price) < Double.parseDouble(priceDone)){
-                throw new PayOverPriceException();
-            }
-            if(Double.parseDouble(price) < 0 || Double.parseDouble(priceDone) < 0){
-                throw  new NotAPositiveValueException();
-            }
             paymentEntity.setPrice(Double.parseDouble(price));
             paymentEntity.setPriceDone(Double.parseDouble(priceDone));
             paymentEntity.setPayType(defaultTypes[typeListComboBox.getSelectedIndex()]);
@@ -109,6 +104,16 @@ public class CreatePaymentController extends JFrame{
             catchException(e);
         }
 
+    }
+    private void checkFieldCorrect(String price, String priceDone) throws Exception{
+        if(fioTextField.getText().isEmpty())
+            throw new EmptyFieldException();
+        if(Double.parseDouble(price) < Double.parseDouble(priceDone)){
+            throw new PayOverPriceException();
+        }
+        if(Double.parseDouble(price) < 0 || Double.parseDouble(priceDone) < 0){
+            throw  new NotAPositiveValueException();
+        }
     }
     /**
      * Ловит все исключения.
