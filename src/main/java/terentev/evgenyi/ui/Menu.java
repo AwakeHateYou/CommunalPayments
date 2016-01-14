@@ -32,20 +32,9 @@ public class Menu extends JMenu {
     private void bind() {
         addPayment.addActionListener(e -> {
             CreatePaymentController window = new CreatePaymentController(mainWindow);
-            //window.setPaymentEntityDefaultListModel();
             window.pack();
             window.setVisible(true);
         });
-//        deletePayment.addActionListener(e -> {
-//            try {
-//                boolean removed = removeSelectedFromList();
-//                if (!removed) {
-//                    showMessage("Выберете счет.");
-//                }
-//            } catch (Exception ex) {
-//                showMessage(ex.getLocalizedMessage());
-//                }
-//        });
         listDebtors.addActionListener(e -> {
             CreateDebtorsListController window = new CreateDebtorsListController();
             window.pack();
@@ -53,26 +42,6 @@ public class Menu extends JMenu {
         });
     }
 
-//    /**
-//     * Удаляет выбранный в списке объект
-//     * @return успешность удаления
-//     */
-//    private boolean removeSelectedFromList() {
-//        Object selected = listPayments.getSelectedValue();
-//
-//        if (selected == null) {
-//            return false;
-//        }
-//
-//        StorePayments.deleteObject(selected);
-//        paymentsListModel.remove(listPayments.getSelectedIndex());
-//
-//        return true;
-//    }
-//
-//    public void setPaymentsListModel(DefaultListModel<PaymentEntity> paymentsListModel) {
-//        this.paymentsListModel = paymentsListModel;
-//    }
     /**
      * Показывает сообщение с информацией
      * @param message сообщение

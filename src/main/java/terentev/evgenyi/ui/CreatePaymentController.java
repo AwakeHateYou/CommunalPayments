@@ -30,15 +30,15 @@ public class CreatePaymentController extends JFrame{
 
     private void initComponents() {
         setTitle("Добавление платежа");
-        setFioLayout();
-        setPriceLayout();
-        setPriceDefaultLayout();
-        setTypeLayout();
-        setButtonLayout();
+        initFioLayout();
+        initPriceLayout();
+        initPriceDefaultLayout();
+        initTypeLayout();
+        initButtonLayout();
         pack();
     }
 
-    private void setFioLayout() {
+    private void initFioLayout() {
         JPanel fioPanel = new JPanel();
         fioTextField = new JTextField();
         fioTextField.setPreferredSize(new Dimension(200, 24));
@@ -47,7 +47,7 @@ public class CreatePaymentController extends JFrame{
         getContentPane().add(fioPanel);
     }
 
-    private void setPriceLayout() {
+    private void initPriceLayout() {
         JPanel pricePanel = new JPanel();
         priceTextField = new JTextField();
         priceTextField.setPreferredSize(new Dimension(200, 24));
@@ -56,7 +56,7 @@ public class CreatePaymentController extends JFrame{
         getContentPane().add(pricePanel);
     }
 
-    private void setPriceDefaultLayout() {
+    private void initPriceDefaultLayout() {
         JPanel priceDonePanel = new JPanel();
         priceDoneTextField = new JTextField();
         priceDoneTextField.setPreferredSize(new Dimension(200, 24));
@@ -65,7 +65,7 @@ public class CreatePaymentController extends JFrame{
         getContentPane().add(priceDonePanel);
     }
 
-    private void setTypeLayout() {
+    private void initTypeLayout() {
         JPanel typePanel = new JPanel();
         typeListComboBox = new JComboBox<>(defaultTypes);
         typePanel.add(new JLabel("Вид платежа"));
@@ -73,7 +73,7 @@ public class CreatePaymentController extends JFrame{
         getContentPane().add(typePanel);
     }
 
-    private void setButtonLayout() {
+    private void initButtonLayout() {
         JPanel buttonPanel = new JPanel();
         JButton acceptButton = new JButton("Принять");
         JButton cancelButton = new JButton("Отменить");

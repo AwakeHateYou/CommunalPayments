@@ -54,7 +54,7 @@ public class PaymentsController extends JFrame {
     }
     private void bind(){
         delete.addActionListener(e -> deletePayment());
-        pay.addActionListener(e -> updateTable(StorePayments.allObjectWithClass(PaymentEntity.class)));
+        pay.addActionListener(e -> payThePrice());
 
     }
     public void updateTable(java.util.List<PaymentEntity> items){
@@ -82,6 +82,11 @@ public class PaymentsController extends JFrame {
         tablePayments.setModel(new DefaultTableModel(tableData, tableHeaders));
         blockIdColumn();
     }
+    private void payThePrice(){
+        PayThePriceController window = new PayThePriceController(tablePayments);
+        window.pack();
+        window.setVisible(true);
+    }
     private void deletePayment() {
         if(tablePayments.getSelectedRow() >= 0) {
             Session session = StorePayments.getSession();
@@ -91,7 +96,6 @@ public class PaymentsController extends JFrame {
             StorePayments.deleteObject(query.uniqueResult());
             updateTable(StorePayments.allObjectWithClass(PaymentEntity.class));
             session.close();
-
         }
     }
     private void blockIdColumn(){
