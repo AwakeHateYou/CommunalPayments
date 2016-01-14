@@ -2,6 +2,8 @@ package terentev.evgenyi.ui;
 
 import terentev.evgenyi.model.PaymentEntity;
 import terentev.evgenyi.store.StorePayments;
+import terentev.evgenyi.util.NotAPositiveValueException;
+import terentev.evgenyi.util.PayOverPriceException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +14,7 @@ import java.awt.*;
 public class CreatePaymentController extends JFrame{
     private JTextField fioTextField;
     private JTextField priceTextField;
-    private JTextField priceDefaultTextField;
+    private JTextField priceDoneTextField;
     private JComboBox<String> typeListComboBox;
     private PaymentsController mainWindow;
     private String[] defaultTypes = {"Квартплата", "Плата за электроэнергию", "Плата за телефон"};
@@ -55,10 +57,10 @@ public class CreatePaymentController extends JFrame{
 
     private void setPriceDefaultLayout() {
         JPanel priceDonePanel = new JPanel();
-        priceDefaultTextField = new JTextField();
-        priceDefaultTextField.setPreferredSize(new Dimension(200, 24));
+        priceDoneTextField = new JTextField();
+        priceDoneTextField.setPreferredSize(new Dimension(200, 24));
         priceDonePanel.add(new JLabel("Внесенная сумма"));
-        priceDonePanel.add(priceDefaultTextField);
+        priceDonePanel.add(priceDoneTextField);
         getContentPane().add(priceDonePanel);
     }
 
@@ -85,17 +87,35 @@ public class CreatePaymentController extends JFrame{
     }
 
     private void acceptListener() {
-        String price = priceTextField.getText();
-        String priceDefault = priceDefaultTextField.getText();
+        try {
+            String price = priceTextField.getText();
+            String priceDone = priceDoneTextField.getText();
 
-        PaymentEntity paymentEntity = new PaymentEntity();
-        paymentEntity.setFio(fioTextField.getText());
-        paymentEntity.setPrice(Double.parseDouble(price));
-        paymentEntity.setPriceDone(Double.parseDouble(priceDefault));
-        paymentEntity.setPayType(defaultTypes[typeListComboBox.getSelectedIndex()]);
-        StorePayments.save(paymentEntity);
-        mainWindow.updateTable(StorePayments.allObjectWithClass(PaymentEntity.class));
-        dispose();
+            PaymentEntity paymentEntity = new PaymentEntity();
+            paymentEntity.setFio(fioTextField.getText());
+            if(Double.parseDouble(price) < Double.parseDouble(priceDone)){
+                throw new PayOverPriceException();
+            }
+            if(Double.parseDouble(price) < 0 || Double.parseDouble(priceDone) < 0){
+                throw  new NotAPositiveValueException();
+            }
+            paymentEntity.setPrice(Double.parseDouble(price));
+            paymentEntity.setPriceDone(Double.parseDouble(priceDone));
+            paymentEntity.setPayType(defaultTypes[typeListComboBox.getSelectedIndex()]);
+            StorePayments.save(paymentEntity);
+            mainWindow.updateTable(StorePayments.allObjectWithClass(PaymentEntity.class));
+            dispose();
+        }catch (Exception e){
+            catchException(e);
+        }
+
+    }
+    /**
+     * Ловит все исключения.
+     * @param e - NumberFormatException, NotAPositiveValueException, WrongAmpuntNeighboursException.
+     */
+    private static void catchException(Exception e) {
+        new JOptionPane().showMessageDialog(null, e.getMessage(), "Alert", JOptionPane.ERROR_MESSAGE);
     }
 
 }
