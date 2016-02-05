@@ -125,7 +125,7 @@ public class PaymentsController extends JFrame {
             tableData.add(oneRow);
         }
         tablePayments.setModel(new DefaultTableModel(tableData, tableHeaders));
-        blockIdColumn();
+//        blockIdColumn();
     }
 
     /**
@@ -150,9 +150,11 @@ public class PaymentsController extends JFrame {
             String queryString = "from PaymentEntity where id = :ID";
             Query query = session.createQuery(queryString);
             query.setParameter("ID", tablePayments.getValueAt(tablePayments.getSelectedRow(), 0));
-            StorePayments.deleteObject(query.uniqueResult());
+            Object temp = query.uniqueResult();
+            StorePayments.deleteObject(temp);
+            session = StorePayments.getSession();
             updateTable(StorePayments.allObjectWithClass(PaymentEntity.class));
-            session.close();
+
         }else{
             showMessage();
         }
